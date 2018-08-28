@@ -51,6 +51,7 @@ def main_script():
           l['name'],
           c['name'],
           c['shortUrl'],
+          str(dt.datetime.fromtimestamp(int(c['id'][0:8],16))),
           str(dt.datetime.strptime(c['dateLastActivity'], '%Y-%m-%dT%H:%M:%S.%fZ'))
         ]
 
@@ -58,7 +59,7 @@ def main_script():
         table.append(new_row)
       print('--------------------')
 
-  # Add card / ticket info to the newly created worksheet
+  # Add card info to the newly created worksheet
   new_wks = wb.worksheet('Report ' + today)
   update_sheet(new_wks, table)
 
