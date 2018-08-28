@@ -2,6 +2,7 @@
 Used to track Trello cards in a Google Sheet
 
 - Rename `secrets.py.example` to `secrets.py` and fill in the relevant info
+- Rename `trello.py.example` to `trello.py` and update object if needed
 
 ## Google Sheets Python API
 NOTE - You may need to use your personal gmail account for these steps
