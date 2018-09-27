@@ -4,7 +4,7 @@ import secrets
 url = 'https://api.trello.com/1/'
 url_lists = url + 'lists/'
 url_cards = url + 'cards/'
-url_members = url + 'members/me/boards'
+url_members = url + 'members/'
 url_boards = url + 'boards/'
 tokens = '?key=%s&token=%s' % (secrets.trello_api_key, secrets.trello_api_token)
 
@@ -25,7 +25,7 @@ trello_boards = [
 # The trello_boards object could be built programmatically if boards and lists are named consistently. An example is below but is not used to pull this report.
 def get_trello_boards():
   trello_boards = []
-  boards_json = requests.request('GET', trello.url_members + trello.tokens).json()
+  boards_json = requests.request('GET', trello.url_members + 'me/boards' + trello.tokens).json()
   for b in boards_json:
     if b['name'].startswith('Support -'):
       lists_json = requests.request('GET', trello.url_boards + b['id'] + '/lists' + trello.tokens).json()
